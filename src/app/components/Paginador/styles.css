@@ -1,34 +1,24 @@
-
-
-.PaginadorContainer {
+.ContainerPaginador {
+    margin: 25px;
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    gap: 7px;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
-.PaginadorContainer h1 {
-
-}
-
-.arrowContainer{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.8);
+.ContainerPaginador button {
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 10px;
     cursor: pointer;
-    transition: transform 1s;
+}
+
+.ContainerPaginador button:disabled {
+    opacity: 0.5;
+}
+
+.PaginaActual {
+    background-color: black !important;
     color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.arrowContainer p {
-    font-size: 20px;
-}
-
-.arrowContainer:hover {
-    transform: scale(1.2);
 }

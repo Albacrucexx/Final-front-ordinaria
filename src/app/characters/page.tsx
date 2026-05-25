@@ -1,47 +1,99 @@
 "use client";
-import "./styles.css";
+
 import { useEffect, useState } from "react";
-import { ResultCharactersT } from "../types/RicardoYMortirio";
 import api from "@/api/api";
-import CharacterChulangano from "../components/CharacterChulongo";
+import { ResultCharactersT } from "../types/RicardoYMortirio";
+import CharacterChulongo from "../components/CharacterChulongo";
 import Paginador from "../components/Paginador";
+import FiltrosChulongos from "../components/FiltrosChulongos";
+import "./styles.css";
 
-const CharactersPage = () => {
+const CharacterPage = () => {
 
-    const [resultCharacters, setResultCharacters] = useState<ResultCharactersT | null>(null);
+    const [resultCharacters, setResultCharacters] = useState<ResultCharactersT | null>(null);
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(1);
 
+    const [status, setStatus] = useState("Dead");
+    const [gender, setGender] = useState("Female");
+    const [name, setName] = useState("");
+    const [nameBuscado, setNameBuscado] = useState("");
+
     const fetchCharacters = () => {
-        try{
-            api.get(`/character?page=${page}`).then((e)=>{
-                const {data} : {data: ResultCharactersT} = e;
+        setLoading(true);
+
+        api.get(`/character?page=${page}&status=${status}&gender=${gender}&name=${nameBuscado}`)
+            .then((e) => {
+                const { data }: { data: ResultCharactersT } = e;
                 setResultCharacters(data);
-            }).finally(()=>{
-                setLoading(false);
             })
-        }catch(e){
-            alert(String(e));
-        }
-    }
+            .catch(() => {
+                setResultCharacters(null);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    };
 
-    useEffect(()=>{
+    const buscar = () => {
+        setPage(1);
+        setNameBuscado(name);
+    };
+
+    useEffect(() => {
         fetchCharacters();
-    },[page]);
-
-    if(loading){
-        return(<h1>Loading...</h1>)
-    }
+    }, [page, status, gender, nameBuscado]);
 
     return (
         <div className="ContainerCharacters">
-            {resultCharacters && resultCharacters.results.map((e)=>(<CharacterChulangano key={e.id} personaje={e}/>))}
-            <Paginador next={!!resultCharacters?.info.next} prev={!!resultCharacters?.info.prev} page={page} setPage={(e)=>{
-                setPage(e);
-            }}/>
+            <h1>Ricardo y Mortirio</h1>
+
+            <FiltrosChulongos
+                status={status}
+                gender={gender}
+                name={name}
+                setStatus={(e) => {
+                    setPage(1);
+                    setStatus(e);
+                }}
+                setGender={(e) => {
+                    setPage(1);
+                    setGender(e);
+                }}
+                setName={setName}
+                buscar={buscar}
+            />
+
+            {loading && <h2>Cargando...</h2>}
+
+            {!loading && !resultCharacters && (
+                <h2>No hay resultados</h2>
+            )}
+
+            {!loading && resultCharacters && (
+                <>
+                    <div className="ListaCharacters">
+                        {resultCharacters.results.slice(0, 20).map((e) => (
+                            <CharacterChulongo
+                                key={e.id}
+                                personaje={e}
+                            />
+                        ))}
+                    </div>
+
+                    <Paginador
+                        page={page}
+                        totalPages={resultCharacters.info.pages}
+                        next={!!resultCharacters.info.next}
+                        prev={!!resultCharacters.info.prev}
+                        setPage={(e) => {
+                            setPage(e);
+                        }}
+                    />
+                </>
+            )}
         </div>
-    )
+    );
 };
 
-
-export default CharactersPage;
+export default CharacterPage;

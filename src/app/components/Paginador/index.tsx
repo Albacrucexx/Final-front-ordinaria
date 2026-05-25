@@ -1,24 +1,42 @@
+"use client";
+
 import "./styles.css";
 
-const Paginador = ({next,prev,page,setPage}: {
-    next: boolean,
-    prev: boolean,
-    page: number,
-    setPage: (page: number) => void
-}) => {
+type Props = {
+    page: number;
+    totalPages: number;
+    next: boolean;
+    prev: boolean;
+    setPage: (page: number) => void;
+};
 
-    return(
-        <div className="PaginadorContainer">
-            {prev && <div className="arrowContainer" onClick={()=>{
-                setPage(page-1);
-            }}><p>{"<"}</p></div>}
-            <h1>{page}</h1>
-            {next && <div className="arrowContainer" onClick={()=>{
-                setPage(page+1);
-            }}><p>{">"}</p></div>}
+const Paginador = ({ page, totalPages, next, prev, setPage }: Props) => {
+
+    const paginas = [1, 2, 3, page, totalPages - 2, totalPages - 1, totalPages]
+        .filter((e) => e >= 1 && e <= totalPages)
+        .filter((e, index, array) => array.indexOf(e) === index);
+
+    return (
+        <div className="ContainerPaginador">
+            <button disabled={!prev} onClick={() => setPage(page - 1)}>
+                Anterior
+            </button>
+
+            {paginas.map((e) => (
+                <button
+                    key={e}
+                    className={e === page ? "PaginaActual" : ""}
+                    onClick={() => setPage(e)}
+                >
+                    {e}
+                </button>
+            ))}
+
+            <button disabled={!next} onClick={() => setPage(page + 1)}>
+                Siguiente
+            </button>
         </div>
-    )
-}
-
+    );
+};
 
 export default Paginador;

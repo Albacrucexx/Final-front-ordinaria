@@ -1,11 +1,17 @@
-
-
-
 .ContainerCharacters {
+    min-height: 100vh;
+    background-color: #FABADA;
+    padding: 30px;
+    text-align: center;
+}
+
+.ContainerCharacters h1 {
+    color: white;
+}
+
+.ListaCharacters {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    gap: 10px;
+    gap: 15px;
 }

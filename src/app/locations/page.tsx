@@ -1,9 +1,3 @@
-
-
-
-
-
-
 const LocationPage = () => {
 
     return (

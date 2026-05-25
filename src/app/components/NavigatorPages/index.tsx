@@ -12,7 +12,7 @@ const NavigatorPages = () => {
 
     const enlaces : LinkType[] = [
         {
-            name: "El hogar",
+            name: "Inicio",
             link: "/"
         },
         {
