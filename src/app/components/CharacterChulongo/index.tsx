@@ -28,3 +28,4 @@ const CharacterChulongo = ({ personaje }: Props) => {
 };
 
 export default CharacterChulongo;
+

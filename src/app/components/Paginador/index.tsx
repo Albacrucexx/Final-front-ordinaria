@@ -40,3 +40,5 @@ const Paginador = ({ page, totalPages, next, prev, setPage }: Props) => {
 };
 
 export default Paginador;
+
+

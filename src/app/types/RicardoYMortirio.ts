@@ -33,3 +33,4 @@ export type ResultCharactersT = {
     info: InfoT,
     results: CharacterT[]
 }
+

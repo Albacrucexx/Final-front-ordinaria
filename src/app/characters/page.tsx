@@ -97,3 +97,4 @@ const CharacterPage = () => {
 };
 
 export default CharacterPage;
+
