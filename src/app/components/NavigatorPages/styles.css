@@ -1,31 +1,24 @@
-
-
 .NavigatorContainer {
-
     display: flex;
-    flex-direction: row;
-    gap: 2px;
-    background-color: white;
-    border-radius: 5px;
-    overflow: hidden;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px;
+    flex-wrap: wrap;
 }
 
 .NavigatorLink {
-    padding: 7px;
-    background-color: black;
+    background-color: #6D28D9;
     color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     text-decoration: none;
+    border: none;
+    border-radius: 15px;
+    padding: 14px 22px;
+    font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 1s;
 }
 
 .NavigatorLink:hover {
-    background-color: rgb(139, 139, 139);
+    background-color: #5B21B6;
 }
-
-

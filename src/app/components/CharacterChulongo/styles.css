@@ -1,26 +1,28 @@
-.ContainerChulangano {
+.ContainerCharacterChulongo {
+    background-color: white;
+    border-radius: 20px;
+    padding: 18px;
+    width: 80%;
+    max-width: 850px;
     display: flex;
-    flex-direction: row;
-    padding: 10px;
-    background-color: rgba(0,0,0,0.8);
-    border-radius: 25px;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
     gap: 25px;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
 }
 
-.ContainerChulangano img {
-    border-radius: 50%;
-    height: 150px;
+.ContainerCharacterChulongo img {
+    width: 140px;
+    border-radius: 15px;
 }
 
-.InfoContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    color: white;
+.ContainerCharacterChulongo h2 {
+    color: #3B1D1D;
+    font-size: 40px;
+    margin-bottom: 10px;
 }
 
-
+.ContainerCharacterChulongo p {
+    color: #4B5563;
+    font-size: 22px;
+}

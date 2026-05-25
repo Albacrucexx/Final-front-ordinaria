@@ -1,8 +1,6 @@
 import Link from "next/link";
 import "./styles.css";
 
-
-
 const NavigatorPages = () => {
 
     type LinkType = {
@@ -10,9 +8,9 @@ const NavigatorPages = () => {
         link: string
     }
 
-    const enlaces : LinkType[] = [
+    const enlaces: LinkType[] = [
         {
-            name: "Inicio",
+            name: "El Hogar",
             link: "/"
         },
         {
@@ -31,11 +29,17 @@ const NavigatorPages = () => {
 
     return (
         <div className="NavigatorContainer">
-            {enlaces.map((e)=>(<Link className="NavigatorLink" key={e.link} href={e.link}>{e.name}</Link>))}
+            {enlaces.map((e) => (
+                <Link
+                    className="NavigatorLink"
+                    key={e.link}
+                    href={e.link}
+                >
+                    {e.name}
+                </Link>
+            ))}
         </div>
     )
 }
 
 export default NavigatorPages;
-
-

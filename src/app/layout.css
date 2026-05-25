@@ -1,29 +1,16 @@
-
-
-
-.MainContainer{
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    background-color: aqua;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 35px;
-}
-
-.TitleContainer {
+.ContainerTitulo {
+    background: linear-gradient(90deg, #2A0A4A, #4B167C);
+    border-radius: 25px;
+    margin: 20px;
     padding: 40px;
-    border-radius: 15px;
-    background-color: rgba(0,0,0,0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.TitleContainer h1 {
-    color: #FABADA;
+.ContainerTitulo h1 {
+    color: white;
+    font-size: 70px;
+    line-height: 1.1;
 }
 
-
+.ColorRicardo {
+    color: #FFD84D;
+}
