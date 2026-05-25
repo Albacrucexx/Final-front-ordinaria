@@ -20,9 +20,9 @@ export default function RootLayout({
 
                 <div className="ContainerTitulo">
                     <h1>
-                        Página que llama a cosas de
+                        Página que llama a cosas de  
                         <span className="ColorRicardo">
-                            Ricardo y Mortirio
+                           Ricardo y Mortirio
                         </span>,
                         al final me tengo que ver la serie
                     </h1>
@@ -36,5 +36,6 @@ export default function RootLayout({
         </html>
     );
 }
+
 
 

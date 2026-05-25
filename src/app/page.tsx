@@ -1,7 +1,5 @@
 import "./style.css";
 
-
-
 const MainPage = ( ) => {
   return(
     <div className="containerMainPage">
